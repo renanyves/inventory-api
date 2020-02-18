@@ -2,3 +2,25 @@ logging:
   level: INFO
   loggers:
     br.com.inventory: DEBUG
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+database:
+  #driverClass: com.mysql.jdbc.Driver
+  driverClass: org.h2.Driver
+  user: sa
+  password: sa
+  #url: jdbc:mysql://localhost:3306/mysqldb
+  url: jdbc:h2:./inventorydb
+  properties:
+    charSet: UTF-8
+    hibernate.show_sql: true
+    hibernate.hbm2ddl.auto: update # mudar para create depois de ajustar as entidades
+    hibernate.generate_statistics: false
+
