@@ -1,6 +1,9 @@
 package br.com.inventory;
 
+import java.util.List;
+
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,8 +18,16 @@ public class InventoryConfiguration extends Configuration {
 	@JsonProperty("database")
 	private DataSourceFactory database = new DataSourceFactory();
 
+	@NotEmpty
+	@JsonProperty("allowedOrigins")
+	private List<String> allowedOrigins;
+
 	public DataSourceFactory getDataSourceFactory() {
 		return database;
+	}
+	
+	public List<String> getAllowedOrigins() {
+		return allowedOrigins;
 	}
 
 }
