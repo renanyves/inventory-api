@@ -1,0 +1,12 @@
+{
+	"barcode": "1234567891011121314151617",
+    "name": "Caderno 96 fls",
+    "description": "Caderno com espiral de 96 fls",
+    "quantity": 50,
+    "category": 
+    {
+       "id": 152,
+       "name": "Cadernos e Agendas",
+       "description": "Cadernos universitários, cartografia, fichários, etc."
+    }
+}

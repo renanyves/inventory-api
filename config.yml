@@ -21,6 +21,6 @@ database:
   properties:
     charSet: UTF-8
     hibernate.show_sql: true
-    hibernate.hbm2ddl.auto: update # mudar para create depois de ajustar as entidades
+    hibernate.hbm2ddl.auto: validate # mudar para create depois de ajustar as entidades
     hibernate.generate_statistics: false
 
