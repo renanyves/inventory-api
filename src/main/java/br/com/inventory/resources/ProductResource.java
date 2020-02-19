@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -64,8 +65,9 @@ public class ProductResource {
 	@DELETE
 	@Timed
 	@UnitOfWork
-	public void delete(@Valid Product product) {
-		dao.delete(product);
+	@Path("/{barcode}")
+	public void deleteById(@PathParam("barcode") @NotNull String barcode) {
+		dao.delete(barcode);
 	}
 
 }

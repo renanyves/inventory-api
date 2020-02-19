@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -71,8 +72,9 @@ public class CategoryResource {
 	@DELETE
 	@Timed
 	@UnitOfWork
-	public void delete(@Valid Category category) {
-		dao.delete(category);
+	@Path("/{id}")
+	public void delete(@PathParam("id") @NotNull Long id) {
+		dao.delete(id);
 	}
 
 }

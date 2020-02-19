@@ -36,13 +36,13 @@ public class CategoryDao extends AbstractDAO<Category> {
 		final CriteriaQuery<Category> query = cb.createQuery(Category.class);
 		final Root<Category> from = query.from(Category.class);
 
-		query.orderBy(cb.desc(from.get("id")));
+		query.orderBy(cb.asc(from.get("id")));
 
 		return list(query);
 	}
 
-	public void delete(Category category) {
-		currentSession().remove(category);
+	public void delete(Long id) {
+		currentSession().remove(get(id));
 	}
 
 	public void update(Category category) {

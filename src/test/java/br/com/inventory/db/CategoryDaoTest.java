@@ -71,7 +71,7 @@ public class CategoryDaoTest {
 			return categoryDao.create(c);
 		});
 
-		categoryDao.delete(category);
+		categoryDao.delete(category.getId());
 	}
 
 	@Test

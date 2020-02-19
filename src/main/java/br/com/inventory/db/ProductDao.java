@@ -52,8 +52,8 @@ public class ProductDao extends AbstractDAO<Product> {
 		return list(query);
 	}
 
-	public void delete(Product product) {
-		currentSession().remove(product);
+	public void delete(String barcode) {
+		currentSession().remove(get(barcode));
 	}
 
 	public void update(Product product) {

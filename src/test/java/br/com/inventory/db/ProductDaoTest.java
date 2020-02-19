@@ -113,7 +113,7 @@ public class ProductDaoTest {
 			return productDao.create(product);
 		});
 
-		productDao.delete(persistedProduct);
+		productDao.delete(persistedProduct.getBarcode());
 	}
 
 	@Test
