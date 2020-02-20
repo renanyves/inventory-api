@@ -7,12 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Category {
-
-	private static final String CATEGORY_ID_GENERATOR = "category_id_generator";
 
 	public Category() {
 		super();
@@ -38,8 +35,7 @@ public class Category {
 
 	@Id
 	@Column(updatable = false, nullable = false)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = CATEGORY_ID_GENERATOR)
-	@SequenceGenerator(name = CATEGORY_ID_GENERATOR, sequenceName = "category_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(length = 100, nullable = false, unique = true)
