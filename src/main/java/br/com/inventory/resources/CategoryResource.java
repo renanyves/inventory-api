@@ -48,7 +48,7 @@ public class CategoryResource {
 	@GET
 	@Timed
 	@UnitOfWork
-	@Path("/{barcode}")
+	@Path("/{id}")
 	public Category findById(@PathParam("id") Long id) {
 		logger.debug("findById :: {} ", id);
 		return dao.findById(id);
