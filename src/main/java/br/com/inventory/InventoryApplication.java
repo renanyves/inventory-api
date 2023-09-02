@@ -7,9 +7,6 @@ import static org.eclipse.jetty.servlets.CrossOriginFilter.ALLOW_CREDENTIALS_PAR
 
 import java.util.EnumSet;
 
-import javax.servlet.DispatcherType;
-import javax.servlet.FilterRegistration;
-
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.hibernate.SessionFactory;
 
@@ -19,11 +16,13 @@ import br.com.inventory.db.CategoryDao;
 import br.com.inventory.db.ProductDao;
 import br.com.inventory.resources.CategoryResource;
 import br.com.inventory.resources.ProductResource;
-import io.dropwizard.Application;
+import io.dropwizard.core.Application;
+import io.dropwizard.core.setup.Bootstrap;
+import io.dropwizard.core.setup.Environment;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
-import io.dropwizard.setup.Bootstrap;
-import io.dropwizard.setup.Environment;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.FilterRegistration;
 
 public class InventoryApplication extends Application<InventoryConfiguration> {
 

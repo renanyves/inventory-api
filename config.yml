@@ -23,4 +23,5 @@ database:
     hibernate.hbm2ddl.auto: create # mudar para create para criar as tabelas
     hibernate.generate_statistics: false
 
-allowedOrigins: ["http://localhost:4200", "https://master.d2noeqqv61u3y2.amplifyapp.com"]
+#allowedOrigins: ["http://localhost:8080", "http://localhost:4200", "https://master.d2noeqqv61u3y2.amplifyapp.com"]
+allowedOrigins: ["*"]

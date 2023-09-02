@@ -10,11 +10,6 @@ import static org.mockito.Mockito.when;
 import java.util.Collections;
 import java.util.List;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,6 +20,10 @@ import br.com.inventory.core.Category;
 import br.com.inventory.db.CategoryDao;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @ExtendWith(DropwizardExtensionsSupport.class)
 class CategoryResourceTest {
@@ -62,15 +61,16 @@ class CategoryResourceTest {
 
 	@Test
 	public void listCategory() throws Exception {
-		final List<Category> categories = Collections.singletonList(category);
-		when(CATEGORY_DAO.findAll()).thenReturn(categories);
+		final List<Category> expected = Collections.singletonList(category);
+		when(CATEGORY_DAO.findAll()).thenReturn(expected);
 
-		final List<Category> response = RESOURCES.target(CATEGORY_ENDPOINT).request()
+		List<Category> response = RESOURCES.target(CATEGORY_ENDPOINT).request()
 				.get(new GenericType<List<Category>>() {
 				});
 
 		verify(CATEGORY_DAO).findAll();
-		assertThat(response).containsAll(categories);
+
+		assertThat(response).containsAll(expected);
 	}
 
 }

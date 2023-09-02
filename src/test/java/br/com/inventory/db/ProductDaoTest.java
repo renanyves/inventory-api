@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,6 @@ public class ProductDaoTest {
 	public static final Integer PRODUCT_QUANTITY = 10;
 	public static final Long PRODUCT_CATEGORY_ID = 5L;
 
-	@Rule
 	private static final DAOTestExtension daoTestExtension = DAOTestExtension.newBuilder().addEntityClass(Product.class)
 			.addEntityClass(Category.class).build();
 

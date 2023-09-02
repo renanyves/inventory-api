@@ -10,11 +10,6 @@ import static org.mockito.Mockito.when;
 import java.util.Collections;
 import java.util.List;
 
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,6 +21,10 @@ import br.com.inventory.core.Product;
 import br.com.inventory.db.ProductDao;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @ExtendWith(DropwizardExtensionsSupport.class)
 public class ProductResourceTest {
@@ -67,8 +66,8 @@ public class ProductResourceTest {
 				.post(Entity.entity(product, MediaType.APPLICATION_JSON_TYPE));
 
 		assertThat(response.getStatusInfo()).isNotEqualTo(Response.Status.OK);
-        String readEntity = response.readEntity(String.class);
-		assertThat(readEntity).contains("não deve ser nulo");
+		String readEntity = response.readEntity(String.class);
+		assertThat(readEntity).contains("must not be null");
 	}
 
 	@Test

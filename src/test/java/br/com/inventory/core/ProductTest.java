@@ -1,6 +1,5 @@
 package br.com.inventory.core;
 
-import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -13,9 +12,9 @@ import io.dropwizard.jackson.Jackson;
 class ProductTest {
 
 	private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
-	
+
 	private static Product product;
-	
+
 	@BeforeAll
 	public static void setup() {
 		ProductTest.product = new Product();
@@ -33,15 +32,15 @@ class ProductTest {
 	@Test
 	public void serializesToJSON() throws Exception {
 		final String expected = MAPPER
-				.writeValueAsString(MAPPER.readValue(fixture("fixtures/product.json"), Product.class));
+				.writeValueAsString(MAPPER.readValue(getClass().getResource("/fixtures/product.json"), Product.class));
 
 		assertThat(MAPPER.writeValueAsString(product)).isEqualTo(expected);
 	}
-	
+
 	@Test
-    public void deserializesFromJSON() throws Exception {
-        assertThat(MAPPER.readValue(fixture("fixtures/product.json"), Product.class))
-                .isEqualTo(product);
-    }
+	public void deserializesFromJSON() throws Exception {
+		assertThat(MAPPER.readValue(getClass().getResource("/fixtures/product.json"), Product.class))
+				.isEqualTo(product);
+	}
 
 }

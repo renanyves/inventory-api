@@ -2,14 +2,13 @@ package br.com.inventory.db;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.SessionFactory;
 
 import br.com.inventory.core.Category;
 import io.dropwizard.hibernate.AbstractDAO;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 public class CategoryDao extends AbstractDAO<Category> {
 
@@ -46,7 +45,7 @@ public class CategoryDao extends AbstractDAO<Category> {
 	}
 
 	public void update(Category category) {
-		currentSession().saveOrUpdate(category);
+		currentSession().merge(category);
 	}
 
 	public Category create(Category category) {

@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +18,6 @@ public class CategoryDaoTest {
 	public static final String CATEGORY_NAME = "Outros papéis";
 	public static final String CATEGORY_DESCRIPTION = "papéis diversos";
 
-	@Rule
 	private static final DAOTestExtension daoTestExtension = DAOTestExtension.newBuilder()
 			.addEntityClass(Category.class).build();
 
