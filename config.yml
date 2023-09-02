@@ -1,7 +1,11 @@
 logging:
-  level: INFO
-  loggers:
-    br.com.inventory: DEBUG
+  appenders:
+    - type: file
+      currentLogFilename: ./logs/inventory-api.log
+      maxFileSize: 10MB
+      archivedLogFilenamePattern: ./logs/inventory-api-%d-%i.log.gz
+      archivedFileCount: 2
+      timeZone: UTC
 
 server:
   applicationConnectors:
@@ -10,6 +14,10 @@ server:
   adminConnectors:
     - type: http
       port: 8081
+  requestLog:
+    appenders:
+      - type: console
+        queueSize: 2048
 
 database:
   #driverClass: com.mysql.cj.jdbc.Driver
@@ -22,6 +30,8 @@ database:
     hibernate.show_sql: true
     hibernate.hbm2ddl.auto: create # mudar para create para criar as tabelas
     hibernate.generate_statistics: false
+    #hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    hibernate.dialect: org.hibernate.dialect.H2Dialect
 
 #allowedOrigins: ["http://localhost:8080", "http://localhost:4200", "https://master.d2noeqqv61u3y2.amplifyapp.com"]
 allowedOrigins: ["*"]
