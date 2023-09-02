@@ -4,5 +4,7 @@
 /target
 *DS_Store
 /bin/*
+/logs/*
 /inventorydb.mv.db
 /inventorydb.trace.db
+/dependency-reduced-pom.xml
