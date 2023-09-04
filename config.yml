@@ -8,12 +8,6 @@ logging:
       timeZone: UTC
 
 server:
-  applicationConnectors:
-    - type: http
-      port: 8080
-  adminConnectors:
-    - type: http
-      port: 8081
   requestLog:
     appenders:
       - type: console
@@ -33,5 +27,5 @@ database:
     #hibernate.dialect: org.hibernate.dialect.MySQLDialect
     hibernate.dialect: org.hibernate.dialect.H2Dialect
 
-#allowedOrigins: ["http://localhost:8080", "http://localhost:4200", "https://master.d2noeqqv61u3y2.amplifyapp.com"]
+#allowedOrigins: ["https://renanyves.github.io", "http://localhost:4200", "https://master.d2noeqqv61u3y2.amplifyapp.com"]
 allowedOrigins: ["*"]
