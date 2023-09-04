@@ -8,7 +8,8 @@ logging:
       timeZone: UTC
 
 server:
-  applicationConnectors:
+  type: simple
+  connector:
     - type: http
       port: $PORT
   requestLog:
