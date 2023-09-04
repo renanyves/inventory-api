@@ -10,7 +10,7 @@ logging:
 server:
   applicationConnectors:
     - type: http
-      port: $PORT
+      port: 8080
   requestLog:
     appenders:
       - type: console
